@@ -12,8 +12,13 @@ function saveOptions(opt)
   % :type opt: structure
   %
 
+  taskString = '';
+  if isfield(opt, 'taskName')
+    taskString = ['_task-', opt.taskName];
+  end
+
   filename = fullfile(pwd, ['options', ...
-                            '_task-', opt.taskName, ...
+                            taskString, ...
                             '_date-' datestr(now, 'yyyymmddHHMM'), ...
                             '.json']);
 

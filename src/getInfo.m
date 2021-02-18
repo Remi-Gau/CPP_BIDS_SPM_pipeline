@@ -40,9 +40,15 @@ function varargout = getInfo(BIDS, subID, opt, info, varargin)
 
     case 'sessions'
 
-      sessions = bids.query(BIDS, 'sessions', ...
-                            'sub', subID, ...
-                            'task', opt.taskName);
+      if isfield(opt, 'taskName')
+        sessions = bids.query(BIDS, 'sessions', ...
+                              'sub', subID, ...
+                              'task', opt.taskName);
+      else
+        sessions = bids.query(BIDS, 'sessions', ...
+                              'sub', subID);
+      end
+
       nbSessions = size(sessions, 2);
       if nbSessions == 0
         nbSessions = 1;
