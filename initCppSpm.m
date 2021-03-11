@@ -11,7 +11,9 @@ function initCppSpm()
   addpath(genpath(fullfile(WD, 'lib', 'NiftiTools')));
   addpath(genpath(fullfile(WD, 'lib', 'spmup')));
   addpath(genpath(fullfile(WD, 'lib', 'utils')));
-
+    
+  addpath(fullfile(WD, 'lib', 'slice_display'));
+  addpath(fullfile(WD, 'lib', 'panel-2.14'));
   addpath(fullfile(WD, 'lib', 'bids-matlab'));
 
 end
